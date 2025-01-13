@@ -1,5 +1,5 @@
 package com.thizthizzydizzy.treefeller.compat;
-import com.archyx.aureliumskills.skills.Skill;
+import dev.aurelium.auraskills.api.skill.Skill;
 import com.thizthizzydizzy.simplegui.ItemBuilder;
 import com.thizthizzydizzy.treefeller.Modifier;
 import com.thizthizzydizzy.treefeller.Option;
@@ -14,6 +14,8 @@ import com.thizthizzydizzy.treefeller.menu.modify.MenuModifyStringDoubleMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import dev.aurelium.auraskills.api.skill.Skill;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.MemorySection;
@@ -248,8 +250,8 @@ public class AureliumSkillsCompat extends InternalCompatibility{
     };
     private BukkitTask pendingTask = null;
     private TreeFeller treefeller;
-    private HashMap<Player, HashMap<com.archyx.aureliumskills.skills.Skill, Double>> modsMap = new HashMap<>();
-    private HashMap<Player, HashMap<com.archyx.aureliumskills.skills.Skill, Double>> noModsMap = new HashMap<>();
+    private HashMap<Player, HashMap<Skill, Double>> modsMap = new HashMap<>();
+    private HashMap<Player, HashMap<Skill, Double>> noModsMap = new HashMap<>();
     @Override
     public String getPluginName(){
         return "AureliumSkills";

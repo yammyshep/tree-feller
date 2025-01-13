@@ -50,7 +50,7 @@ public abstract class Option<E>{
     private static final HashMap<String, String> defaultDropConversions = new HashMap<>();
     private static final HashMap<String, String> defaultBlockConversions = new HashMap<>();
     static{
-        defaultOverridables.add(Material.GRASS);
+        defaultOverridables.add(Material.GRASS_BLOCK);
         defaultOverridables.add(Material.AIR);
         defaultOverridables.add(Material.CAVE_AIR);
         defaultOverridables.add(Material.WATER);
@@ -1833,7 +1833,7 @@ public abstract class Option<E>{
         }
         @Override
         public ItemBuilder getConfigurationDisplayItem(HashSet<Material> value){
-            return new ItemBuilder(Material.GRASS);
+            return new ItemBuilder(Material.GRASS_BLOCK);
         }
         @Override
         public void openGlobalModifyMenu(MenuGlobalConfiguration parent){

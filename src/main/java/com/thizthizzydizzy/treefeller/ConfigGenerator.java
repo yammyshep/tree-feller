@@ -163,7 +163,7 @@ public class ConfigGenerator{
         for(Message m : Message.messages){
             if(m.actionbar!=null)add("actionbar-"+m.name+": \""+m.actionbar+"\"");
         }
-        write(new File(plugin.getDataFolder(), "config.yml"));
+        write(new File(plugin.getDataFolder(), "src/main/resources/config.yml"));
     }
     public static void main(String[] args){
         if(args.length==1&&args[0].equals("genConfig")){
