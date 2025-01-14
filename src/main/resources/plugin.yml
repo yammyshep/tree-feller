@@ -14,16 +14,11 @@ softdepend:
   - WorldGuard
   - WorldEdit
   - Towny
-  - OreRegenerator
-  - Drop2Inventory
-  - Drop2InventoryPlus
   - Jobs
   - EcoSkills
-  - LogBlock
   - Lands
   - PlaceholderAPI
   - SaberFactions
-  - AureliumSkills
   - AuraSkills
   - Prism
   

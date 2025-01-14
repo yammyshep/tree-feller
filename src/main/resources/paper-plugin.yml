@@ -1,0 +1,35 @@
+name: TreeFeller
+authors:
+  - ThizThizzyDizzy
+api-version: '1.19'
+version: '${project.version}'
+website: "https://www.spigotmc.org/resources/thizzyz-tree-feller.64346/"
+
+main: com.thizthizzydizzy.treefeller.TreeFeller
+
+dependencies:
+  server:
+    mcMMO:
+      required: false
+    CoreProtect:
+      required: false
+    WorldGuard:
+      required: false
+    WorldEdit:
+      required: false
+    Towny:
+      required: false
+    Jobs:
+      required: false
+    EcoSkills:
+      required: false
+    Lands:
+      required: false
+    PlaceholderAPI:
+      required: false
+    SaberFactions:
+      required: false
+    AuraSkills:
+      required: false
+    Prism:
+      required: false
