@@ -6,6 +6,7 @@ version: '${project.version}'
 website: "https://www.spigotmc.org/resources/thizzyz-tree-feller.64346/"
 
 main: com.thizthizzydizzy.treefeller.TreeFeller
+bootstrapper: com.thizthizzydizzy.treefeller.TreeFellerBootstrap
 
 dependencies:
   server:

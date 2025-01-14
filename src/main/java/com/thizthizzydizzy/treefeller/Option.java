@@ -1,6 +1,8 @@
 package com.thizthizzydizzy.treefeller;
 import com.thizthizzydizzy.simplegui.ItemBuilder;
 import static com.thizthizzydizzy.treefeller.DebugResult.Type.*;
+import static com.thizthizzydizzy.treefeller.TreeFellerBootstrap.TREEFELLER_ENCHANT_KEY;
+
 import com.thizthizzydizzy.treefeller.decoration.AdjacentDecorationDetector;
 import com.thizthizzydizzy.treefeller.decoration.DecorationDetector;
 import com.thizthizzydizzy.treefeller.menu.MenuGlobalConfiguration;
@@ -2767,6 +2769,34 @@ public abstract class Option<E>{
             }));
         }
     };
+
+    public static OptionBoolean TREEFELLER_ENCHANT = new OptionBoolean("Treefeller Enchant", true, true, true, true) {
+        @Override
+        public String getDesc(boolean ingame) {
+            return "Enable adding a custom TreeFeller enchant and require tools to have it.";
+        }
+
+        @Override
+        public ItemBuilder getConfigurationDisplayItem(Boolean value) {
+            return new ItemBuilder(Material.ENCHANTING_TABLE);
+        }
+
+        @Override
+        protected DebugResult doCheck(TreeFeller plugin, Tool tool, Tree tree, Block block, Player player, ItemStack axe) {
+            if (!getValue()) {
+                return new DebugResult(this, SUCCESS);
+            }
+
+            for (Enchantment enchant : axe.getEnchantments().keySet()) {
+                if (TREEFELLER_ENCHANT_KEY.asString().equals(enchant.getKey().asString())) {
+                    return new DebugResult(this, SUCCESS);
+                }
+            }
+
+            return new DebugResult(this, TOOL, "treefeller enchant");
+        }
+    };
+
     //requirements
     public static Option<HashMap<Enchantment, Integer>> REQUIRED_ENCHANTMENTS = new Option<HashMap<Enchantment, Integer>>("Required Enchantments", true, true, true, null){
         @Override

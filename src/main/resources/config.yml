@@ -314,6 +314,9 @@ consumed-health-logs: 0.0
 # How much health should be be consumed per block of leaves upon felling a tree? (This is in addition to the base setting)
 consumed-health-leaves: 0.0
 
+# Enable adding a custom TreeFeller enchant and require tools to have it.
+treefeller-enchant: true
+
 # Tools must have these enchantments at this level or higher to fell trees
 # ex:
 # - unbreaking: 2
