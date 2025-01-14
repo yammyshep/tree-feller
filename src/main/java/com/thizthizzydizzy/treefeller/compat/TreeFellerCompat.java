@@ -25,18 +25,12 @@ public class TreeFellerCompat{
         compatibilities.add(new WorldGuardCompat());
         compatibilities.add(new GriefPreventionCompat());
         compatibilities.add(new TownyCompat());
-        compatibilities.add(new OreRegeneratorCompat());
-        compatibilities.add(new Drop2InventoryCompat());
         compatibilities.add(new EcoSkillsCompat());
         compatibilities.add(new EcoJobsCompat());
-        compatibilities.add(new LegacyLogBlockCompat());
-        compatibilities.add(new LogBlockCompat());
         compatibilities.add(new LandsCompat());
         compatibilities.add(new PlaceholderAPICompat());
         compatibilities.add(new SaberFactionsCompat());
-        compatibilities.add(new AureliumSkillsCompat());
         compatibilities.add(new AuraSkillsCompat());
-        compatibilities.add(new BlockRegenCompat());
         compatibilities.add(new PrismCompat());
     }
     public static void init(TreeFeller treefeller){

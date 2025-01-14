@@ -257,9 +257,8 @@ public class EcoJobsCompat extends InternalCompatibility{
             }
         }
         boolean applyMultipliers = ECOJOBS_APPLY_MULTIPLIERS.get(tool, tree);
-        com.willfp.ecojobs.api.EcoJobsAPI api = com.willfp.ecojobs.api.EcoJobsAPI.instance;
         for(com.willfp.ecojobs.jobs.Job job : exp.keySet()){
-            if(exp.get(job)!=0)api.giveJobExperience(player, job, exp.get(job), applyMultipliers);
+            if(exp.get(job)!=0)com.willfp.ecojobs.api.EcoJobsAPI.giveJobExperience(player, job, exp.get(job), applyMultipliers);
         }
     }
 }
