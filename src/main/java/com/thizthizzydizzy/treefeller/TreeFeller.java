@@ -27,6 +27,10 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import io.papermc.paper.command.brigadier.Commands;
+import io.papermc.paper.plugin.lifecycle.event.LifecycleEventManager;
+import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.EntityEffect;
@@ -49,6 +53,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.permissions.Permission;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -623,6 +628,7 @@ public class TreeFeller extends JavaPlugin{
         }
         return max;
     }
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public void onEnable(){
         PluginDescriptionFile pdfFile = getDescription();
@@ -644,7 +650,19 @@ public class TreeFeller extends JavaPlugin{
         }catch(IllegalArgumentException ex){
             logger.log(Level.WARNING, "Failed to add permissions! Did you reload the plugin? (If you just want to reload the config, use /treefeller reload)");
         }
-        getCommand("treefeller").setExecutor(new CommandTreeFeller(this));
+
+        try {
+            getCommand("treefeller").setExecutor(new CommandTreeFeller(this));
+        } catch (UnsupportedOperationException ex) {
+            // Running as a paper plugin, use Brigadier command API
+            LifecycleEventManager<Plugin> manager = getLifecycleManager();
+            manager.registerEventHandler(LifecycleEvents.COMMANDS, event -> {
+                final Commands commands = event.registrar();
+                commands.register(CommandTreeFellerBrigadier.buildCommand(this),
+                        "TreeFeller commands");
+            });
+        }
+
         logger.log(Level.INFO, "{0} has been enabled! (Version {1}) by ThizThizzyDizzy", new Object[]{pdfFile.getName(), pdfFile.getVersion()});
         reload();
         new BukkitRunnable() {
