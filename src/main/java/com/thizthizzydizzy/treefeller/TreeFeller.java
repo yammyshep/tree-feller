@@ -653,7 +653,7 @@ public class TreeFeller extends JavaPlugin{
 
         try {
             getCommand("treefeller").setExecutor(new CommandTreeFeller(this));
-        } catch (UnsupportedOperationException ex) {
+        } catch (UnsupportedOperationException | NullPointerException ex) {
             // Running as a paper plugin, use Brigadier command API
             LifecycleEventManager<Plugin> manager = getLifecycleManager();
             manager.registerEventHandler(LifecycleEvents.COMMANDS, event -> {
